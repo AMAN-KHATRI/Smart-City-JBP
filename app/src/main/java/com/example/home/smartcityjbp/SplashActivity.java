@@ -15,10 +15,12 @@ public class SplashActivity extends AppCompatActivity {
 
         final Context context = this;
 
+        getSupportActionBar().hide();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(context, LoginActivity.class);
+                Intent intent = new Intent(context, LoginEnterPhoneNoActivity.class);
                 startActivity(intent);
                 finish();
             }

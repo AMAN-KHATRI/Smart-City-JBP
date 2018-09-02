@@ -2,4 +2,11 @@
     <string name="app_name">Smart City JBP</string>
 
     <string name="splash_image_description">Splash Screen Image</string>
+
+    <string name="ask_for_phone">May I have your Phone number?</string>
+    <string name="phone_no_et_hint">Enter your phone number</string>
+    <string name="confirm_phone">Confirm</string>
+    <string name="waiting_otp">Waiting for OTP</string>
+    <string name="enter_otp">Enter your OTP</string>
+    <string name="confirm_otp">Login</string>
 </resources>
