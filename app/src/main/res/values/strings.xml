@@ -7,6 +7,8 @@
     <string name="phone_no_et_hint">Enter your phone number</string>
     <string name="confirm_phone">Confirm</string>
     <string name="waiting_otp">Waiting for OTP</string>
-    <string name="enter_otp">Enter your OTP</string>
+    <string name="enter_otp">Enter OTP</string>
     <string name="confirm_otp">Login</string>
+
+    <string name="Logout">Logout</string>
 </resources>

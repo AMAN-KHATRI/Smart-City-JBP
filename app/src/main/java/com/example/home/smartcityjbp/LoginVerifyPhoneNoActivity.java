@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,7 +25,9 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
 
     private String mVerificationId;
     private EditText enterOtpET;
+    private ProgressBar enterOtpPB;
     private FirebaseAuth mAuth;
+
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                 @Override
@@ -54,8 +58,13 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_verify_phone_no);
 
+        getSupportActionBar().hide();
+
         mAuth = FirebaseAuth.getInstance();
         enterOtpET = findViewById(R.id.enter_otp_et);
+        enterOtpPB = findViewById(R.id.waiting_otp_pb);
+
+        enterOtpPB.setVisibility(View.VISIBLE);
 
         //Getting mobile number from previous activity
         Intent i = getIntent();
@@ -74,6 +83,14 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
                 verifyVerificationCode(code);
             }
         });
+
+        findViewById(R.id.enter_otp_et).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                enterOtpPB.setVisibility(View.GONE);
+                return false;
+            }
+        });
     }
 
     private void sendVerificationCode(String phoneNo) {
@@ -86,6 +103,10 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
     }
 
     private void verifyVerificationCode(String code) {
+        LoginEnterPhoneNoActivity.editor = LoginEnterPhoneNoActivity.sharedPreferences.edit();
+        LoginEnterPhoneNoActivity.editor.putBoolean("is_logged_in", true);
+        LoginEnterPhoneNoActivity.editor.apply();
+
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
 
         signInWithPhoneAuthCredential(credential);
