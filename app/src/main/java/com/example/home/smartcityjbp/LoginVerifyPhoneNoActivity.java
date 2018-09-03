@@ -119,7 +119,7 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginVerifyPhoneNoActivity.this, "Signed in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginVerifyPhoneNoActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(LoginVerifyPhoneNoActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
