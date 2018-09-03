@@ -41,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
         LoginEnterPhoneNoActivity.editor.putBoolean("is_logged_in", false);
         LoginEnterPhoneNoActivity.editor.apply();
 
+        Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+
         Intent i = new Intent(MainActivity.this, LoginEnterPhoneNoActivity.class);
         startActivity(i);
+        finish();
     }
 
     @Override
