@@ -18,7 +18,16 @@
         </activity>
         <activity android:name=".LoginEnterPhoneNoActivity" />
         <activity android:name=".LoginVerifyPhoneNoActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".features.SmartReceiptActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".features.FeedInNeedActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".features.HelpYouAvtivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

@@ -6,7 +6,12 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
+
+import com.example.home.smartcityjbp.features.FeedInNeedActivity;
+import com.example.home.smartcityjbp.features.HelpYouAvtivity;
+import com.example.home.smartcityjbp.features.SmartReceiptActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +21,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.smart_receipt_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, SmartReceiptActivity.class);
+                startActivity(i);
+            }
+        });
+
+        findViewById(R.id.help_you_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, HelpYouAvtivity.class);
+                startActivity(i);
+            }
+        });
+
+        findViewById(R.id.feed_in_need_iv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, FeedInNeedActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
 
 

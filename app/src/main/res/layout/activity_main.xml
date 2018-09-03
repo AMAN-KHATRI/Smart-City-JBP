@@ -44,12 +44,12 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/leftover_food_iv"
+                android:id="@+id/feed_in_need_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/leftover_food_logo" />
+                android:src="@drawable/feed_in_need_logo" />
 
             <TextView
                 android:layout_width="wrap_content"
