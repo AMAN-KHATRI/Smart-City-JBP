@@ -11,7 +11,5 @@ public class FeedInNeedMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_in_need);
-
-        getSupportActionBar().setTitle("Feed In Need");
     }
 }

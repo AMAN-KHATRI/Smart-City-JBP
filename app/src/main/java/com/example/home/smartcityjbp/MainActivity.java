@@ -1,9 +1,12 @@
 package com.example.home.smartcityjbp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        customizeActionBar();
 
         findViewById(R.id.smart_receipt_iv).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +51,31 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        findViewById(R.id.actionbar_rl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, UpdateProfileActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+
+    private void customizeActionBar() {
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.custom_action_bar, null);
+
+        actionBar.setCustomView(v);
+
+//        CircleImageView profileImage = (CircleImageView) findViewById(R.id.profile_image);
+//
+//        Picasso.get().load("http://i.imgur.com/DvpvklR.png").into(profileImage);
     }
 
 
