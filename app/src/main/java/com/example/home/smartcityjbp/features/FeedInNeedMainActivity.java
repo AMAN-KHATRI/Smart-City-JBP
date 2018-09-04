@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.home.smartcityjbp.R;
 
-public class FeedInNeedActivity extends AppCompatActivity {
+public class FeedInNeedMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBa5XeCaw62lqHTH26hWWOOLMZOfkykuNE" />
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,13 +25,13 @@
         <activity android:name=".LoginVerifyPhoneNoActivity" />
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".features.SmartReceiptActivity"
+            android:name=".features.SmartReceiptMainActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".features.FeedInNeedActivity"
+            android:name=".features.FeedInNeedMainActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".features.HelpYouAvtivity"
+            android:name=".features.HelpYouMainActivity"
             android:parentActivityName=".MainActivity" />
     </application>
 

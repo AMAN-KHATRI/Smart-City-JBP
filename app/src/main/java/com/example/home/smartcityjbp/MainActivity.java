@@ -9,9 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.home.smartcityjbp.features.FeedInNeedActivity;
-import com.example.home.smartcityjbp.features.HelpYouAvtivity;
-import com.example.home.smartcityjbp.features.SmartReceiptActivity;
+import com.example.home.smartcityjbp.features.FeedInNeedMainActivity;
+import com.example.home.smartcityjbp.features.HelpYouMainActivity;
+import com.example.home.smartcityjbp.features.SmartReceiptMainActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.smart_receipt_iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, SmartReceiptActivity.class);
+                Intent i = new Intent(MainActivity.this, SmartReceiptMainActivity.class);
                 startActivity(i);
             }
         });
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.help_you_iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, HelpYouAvtivity.class);
+                Intent i = new Intent(MainActivity.this, HelpYouMainActivity.class);
                 startActivity(i);
             }
         });
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.feed_in_need_iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, FeedInNeedActivity.class);
+                Intent i = new Intent(MainActivity.this, FeedInNeedMainActivity.class);
                 startActivity(i);
 
             }

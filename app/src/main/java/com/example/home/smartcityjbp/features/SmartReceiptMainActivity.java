@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.home.smartcityjbp.R;
 
-public class SmartReceiptActivity extends AppCompatActivity {
+public class SmartReceiptMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
