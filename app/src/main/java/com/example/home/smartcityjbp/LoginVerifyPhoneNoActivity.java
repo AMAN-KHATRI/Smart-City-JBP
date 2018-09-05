@@ -1,7 +1,9 @@
 package com.example.home.smartcityjbp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -27,6 +29,9 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
     private EditText enterOtpET;
     private ProgressBar enterOtpPB;
     private FirebaseAuth mAuth;
+    public static SharedPreferences sharedPreferencesForPhoneNumber;
+    public static SharedPreferences.Editor sharedPreferencesEditorForPhoneNumber;
+    String phoneNo;
 
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks =
             new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -68,7 +73,7 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
 
         //Getting mobile number from previous activity
         Intent i = getIntent();
-        String phoneNo = i.getStringExtra("phone_number");
+        phoneNo = i.getStringExtra("phone_number");
         sendVerificationCode(phoneNo);
 
         findViewById(R.id.confirm_otp).setOnClickListener(new View.OnClickListener() {
@@ -119,7 +124,7 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginVerifyPhoneNoActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
+                            onSuccessfullLogin();
 
                             Intent intent = new Intent(LoginVerifyPhoneNoActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -127,6 +132,17 @@ public class LoginVerifyPhoneNoActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void onSuccessfullLogin() {
+        //Toast to show login Successfull
+        Toast.makeText(LoginVerifyPhoneNoActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
+
+        sharedPreferencesForPhoneNumber = PreferenceManager.getDefaultSharedPreferences(this);
+
+        sharedPreferencesEditorForPhoneNumber = sharedPreferencesForPhoneNumber.edit();
+        sharedPreferencesEditorForPhoneNumber.putString("phone_number", phoneNo);
+        sharedPreferencesEditorForPhoneNumber.apply();
     }
 
 }
